@@ -1,0 +1,107 @@
+{
+  "name": "live-coding-pro",
+  "displayName": "Live Coding Pro 🚀",
+  "version": "1.0.0",
+  "description": "منصة متكاملة لتعليم البرمجة  - كتابة تفاعلية مع شرح",
+  "publisher": "giantpixeel",
+  "author": {
+    "name": "Ahmad Mohammad Zenah",
+    "email": "giantpixel2020@gmail.com"
+    },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/giantpixeel/live-coding-pro"
+    },
+  "license": "MIT",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Education",
+    "Programming Languages"
+  ],
+  "keywords": [
+    "arabic",
+    "education",
+    "learning",
+    "python",
+    "tutorial",
+    "live coding",
+    "تعليم",
+    "برمجة",
+    "عربي"
+  ],
+  "activationEvents": [
+    "onCommand:liveCoding.start",
+    "onCommand:liveCoding.quickStart",
+    "onCommand:liveCoding.settings"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "liveCoding.start",
+        "title": "🚀 ابدأ الشرح التفاعلي",
+        "category": "Live Coding"
+      },
+      {
+        "command": "liveCoding.quickStart",
+        "title": "⚡ بدء سريع من الملف الحالي",
+        "category": "Live Coding"
+      },
+      {
+        "command": "liveCoding.settings",
+        "title": "⚙️ إعدادات Live Coding",
+        "category": "Live Coding"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "liveCoding.quickStart",
+          "group": "navigation",
+          "when": "editorLangId == python"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Live Coding Pro",
+      "properties": {
+        "liveCoding.typingSpeed": {
+          "type": "number",
+          "default": 60,
+          "minimum": 10,
+          "maximum": 500,
+          "description": "سرعة الكتابة (مللي ثانية لكل حرف)"
+        },
+        "liveCoding.autoPause": {
+          "type": "boolean",
+          "default": true,
+          "description": "إيقاف تلقائي عند الشرح"
+        },
+        "liveCoding.language": {
+          "type": "string",
+          "default": "python",
+          "enum": ["python", "javascript", "typescript"],
+          "description": "لغة البرمجة الافتراضية"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.60.0",
+    "typescript": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/live-coding-pro"
+  }
+}
